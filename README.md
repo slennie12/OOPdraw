@@ -1,1 +1,2 @@
 # OOPdraw
+# A school project

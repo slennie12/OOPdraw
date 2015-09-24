@@ -5,6 +5,8 @@ import java.awt.Point;
 import shapes.AbstractShape;
 import shapes.MyLine;
 
+//hoi
+
 public class LineComposer implements ShapeComposer {
 	
 

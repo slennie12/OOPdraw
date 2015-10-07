@@ -1,5 +1,5 @@
 package shapes;
-import java.awt.Color;
+//import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
@@ -7,11 +7,11 @@ import java.awt.Point;
  * base class AbstractShape
  *
  */
-public abstract class AbstractShape extends Object
+public interface AbstractShape
 
 {
 
-	// Data members
+/*	// Data members
 	protected Point ptStart; // Start point of shape
 
 	protected Point ptEnd; // End point of shape
@@ -25,19 +25,15 @@ public abstract class AbstractShape extends Object
 	public AbstractShape() {
 		// default color is red, try your combinations
 		clrFront = Color.red;
-	}
+	}*/
 
 	public abstract void setStart(Point pt);
 
 	public abstract void setEnd(Point pt);
 
-	public Point getStart() {
-		return ptStart;
-	}
+	public Point getStart();
 
-	public Point getEnd() {
-		return ptEnd;
-	}
+	public Point getEnd();
 
 	public abstract void Draw(Graphics2D g);
 

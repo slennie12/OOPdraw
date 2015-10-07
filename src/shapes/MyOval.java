@@ -2,49 +2,67 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.geom.Ellipse2D;
+
 
 /**
  *  Class MyOval for drawing ovals is derived
  *  from our 'base class' AbstratShape
  */
-public class MyOval extends AbstractShape {
+public class MyOval extends Ellipse2D.Double implements AbstractShape {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 744275142022471773L;
 
+/*	private Point ptStart; // Start point of shape
+
+	private Point ptEnd; // End point of shape
+
+	private int nwidth; // Width of shape
+
+	private int nheight; // Height of shape
+*/
 	public void setStart(Point pt) {
-		ptStart = pt;
+		setFrame(pt.getX(), pt.getY(), 0,0);
 	}
 
 	public void setEnd(Point pt) {
-		ptEnd = pt;
+		Point start = new Point((int)getX(), (int)getY());
+		setFrameFromDiagonal(start, pt);
 	}
 
 	public void setWidth(int w) {
-		nwidth = w;
+		width = w;
 	}
 
 	public void setHeight(int h) {
-		nheight = h;
+		height = h;
 	}
 
 	public Point getStart() {
-		return ptStart;
+		Point start = new Point((int)getX(), (int)getY());
+		return start;
+		
 	}
 
 	public Point getEnd() {
 		return new Point(0, 0);
 	}
 
-	public int getWidth() {
-		return nwidth;
+	public double getWidth() {
+		return width;
 	}
 
-	public int getHeight() {
-		return nheight;
+	public double getHeight() {
+		return height;
 	}
 
 	// Drawing routine
 	public void Draw(Graphics2D g) {
 		g.setColor(Color.green.darker()); // Set default color
-		g.drawOval(ptStart.x, ptStart.y, nwidth, nheight);
+		g.draw(this);
 	}
 
 }

@@ -26,7 +26,7 @@ public class LineComposer implements ShapeComposer {
 
 	@Override
 	public void complete(int x, int y) {
-		l.setEnd(new Point(x,y));	
+		expand(x,y);
 	}
 	
 	@Override

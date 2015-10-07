@@ -16,29 +16,21 @@ public class OvalComposer implements ShapeComposer{
 
 	@Override
 	public void expand(int x, int y) {
-		Point drawto = new Point(Math.max(x, o.getStart().x), Math.max(y, o.getStart().y));
-		Point newstart = new Point(Math.min(x, o.getStart().x), Math.min(y, o.getStart().y));
-		int nwidth1 = Math.abs((drawto.x - newstart.x));
-		int nheight1 = Math.abs((drawto.y - newstart.y));
-		//o = (MyOval) vt.get(i);
-		o.setWidth(nwidth1);
-		o.setHeight(nheight1);
+		Point startPos = o.getStart();
+		Point drawto = new Point(Math.max(x, startPos.x), Math.max(y, startPos.y));
+		Point newstart = new Point(Math.min(x, startPos.x), Math.min(y, startPos.y));
+		int newWidth = Math.abs((drawto.x - newstart.x));
+		int newHeight = Math.abs((drawto.y - newstart.y));
+	
+		o.setWidth(newWidth);
+		o.setHeight(newHeight);
 		o.setStart(newstart);
-		
-		
+		o.setEnd(new Point(x,y));
 	}
 
 	@Override
 	public void complete(int x, int y) {
-		Point drawto = new Point(Math.max(x, o.getStart().x), Math.max(y, o.getStart().y));
-		Point newstart = new Point(Math.min(x, o.getStart().x), Math.min(y, o.getStart().y));
-		int nwidth1 = Math.abs((drawto.x - newstart.x));
-		int nheight1 = Math.abs((drawto.y - newstart.y));
-		//o = (MyOval) vt.get(i);
-		o.setWidth(nwidth1);
-		o.setHeight(nheight1);
-		o.setStart(newstart);
-		
+		expand(x,y);
 	}
 	
 	@Override

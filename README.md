@@ -12,7 +12,7 @@
   - Refactor project with Adapter design pattern
 
 ### Problems:
-  -
+  - Still have a problem with drawing from right to left, from left to right it's all okay
 ## Week 3:
 ### Task:
   - Refactor project with Factory design pattern

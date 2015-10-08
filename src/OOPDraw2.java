@@ -193,50 +193,6 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
-/*		// Create and Add the buttons
-		Button btnLine = new Button("Line");
-		btnLine.addActionListener(new ActionListener() {
-		
-		
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				currentComposer = new LineComposer();
-			}
-		});
-		Button btnOval = new Button("Oval");
-		btnOval.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				currentComposer = new OvalComposer();
-			}
-		});
-		Button btnRect = new Button("Rectangle");
-		btnRect.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				currentComposer = new RectComposer();
-			}
-		});
-		Button btnClear = new Button("Clear");
-		btnClear.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// Clear the entire drawing screen
-				// First remove all elements
-				vt.clear();
-				// then make vector index zero
-				//i = 0;
-				// finally, call repaint()
-				repaint();
-			}
-		});
-		add(btnLine);
-		add(btnOval);
-		add(btnRect);
-		add(btnClear);*/
 		
 		ShapeComposerFactory factory = new ShapeComposerFactory();
 		currentComposer = factory.createComposer(factory.listComposerNames()[0]);

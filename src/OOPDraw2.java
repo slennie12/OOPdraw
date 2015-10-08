@@ -37,10 +37,8 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import composers.LineComposer;
-import composers.OvalComposer;
-import composers.RectComposer;
 import composers.ShapeComposer;
+import composers.ShapeComposerFactory;
 import shapes.AbstractShape;
 
 /**
@@ -188,14 +186,14 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 	 * method initializes GUI components
 	 */
 	private void initGUI() {
-		currentComposer = new LineComposer();
+		//currentComposer = new LineComposer();
 		setSize(800, 600);
 		setTitle("POSE 2.0 hairy drawing tool");
 		setLayout(new FlowLayout());
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
-		// Create and Add the buttons
+/*		// Create and Add the buttons
 		Button btnLine = new Button("Line");
 		btnLine.addActionListener(new ActionListener() {
 		
@@ -238,7 +236,39 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 		add(btnLine);
 		add(btnOval);
 		add(btnRect);
-		add(btnClear);
+		add(btnClear);*/
+		
+		ShapeComposerFactory factory = new ShapeComposerFactory();
+		currentComposer = factory.createComposer(factory.listComposerNames()[0]);
+		for(String name: factory.listComposerNames()){
+			Button button = new Button(name);
+			ShapeComposer newComposer = factory.createComposer(name);
+			button.addActionListener(new ActionListener(){
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					currentComposer = newComposer;
+				}
+			});
+			add(button);
+		}
+		
+		Button clear = new Button("Clear");
+		clear.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// Clear the entire drawing screen
+				// First remove all elements
+				vt.clear();
+				// then make vector index zero
+				//i = 0;
+				// finally, call repaint()
+				repaint();
+			}
+		});
+		
+		add(clear);
 	}
 
 } // ALL ends :)

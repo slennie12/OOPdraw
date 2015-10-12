@@ -13,9 +13,26 @@
 
 ### Problems:
   - Still have a problem with drawing from right to left, from left to right it's all okay
+
 ## Week 3:
 ### Task:
   - Refactor project with Factory design pattern
 
 ### Problems:
   -
+
+## Week 4:
+### Task:
+  - Add Composite pattern for a WeirdShape
+
+### Problems:
+  - Multiple WeirdShapes is not supported at the moment
+  
+## Week 5:
+### Task:
+  - Add MVC to the project
+
+### Problems:
+  - 
+  
+ 
